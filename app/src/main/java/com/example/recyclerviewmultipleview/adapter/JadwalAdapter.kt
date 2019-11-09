@@ -1,10 +1,13 @@
-package com.example.recyclerviewmultipleview
+package com.example.recyclerviewmultipleview.adapter
 
 import android.view.LayoutInflater
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerviewmultipleview.R
+import com.example.recyclerviewmultipleview.model.DataDay
+import com.example.recyclerviewmultipleview.model.DataJadwal
 import kotlinx.android.synthetic.main.item_day.view.*
 import kotlinx.android.synthetic.main.item_jadwal.view.*
 import java.lang.IllegalArgumentException
@@ -16,8 +19,10 @@ class JadwalAdapter(private val listItem: List<Any>) : RecyclerView.Adapter<Recy
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            ITEM_DAY -> ViewHolderDay(LayoutInflater.from(parent.context).inflate(R.layout.item_day, parent, false))
-            ITEM_JADWAL -> ViewHolderJadwal(LayoutInflater.from(parent.context).inflate(R.layout.item_jadwal, parent, false))
+            ITEM_DAY -> ViewHolderDay(LayoutInflater.from(parent.context).inflate(
+                R.layout.item_day, parent, false))
+            ITEM_JADWAL -> ViewHolderJadwal(LayoutInflater.from(parent.context).inflate(
+                R.layout.item_jadwal, parent, false))
             else -> throw IllegalArgumentException("undefined view type")
         }
     }
